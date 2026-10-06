@@ -148,6 +148,11 @@ void inserirElemento()
 	cout << "Digite o elemento: ";
 	cin >> valor;
 
+	if (posicaoElemento(valor) != NULL){
+		cout << "Este elemento ja existe.";
+		return;
+	}
+
 	// -----------------------------------------------------------------
 	// TAREFA 1: antes de alocar memória, verifique se 'valor' já existe
 	// na lista (dica: use posicaoElemento). Se existir, avise o usuário
@@ -200,6 +205,17 @@ void excluirElemento()
 
 void buscarElemento()
 {
+	int valor;
+	cout << "Digite o elemento: ";
+	cin >> valor;
+
+	if (posicaoElemento(valor) != NULL) {
+		cout << "ENCONTRADO." << endl;
+		return;
+	}
+
+	cout << "ELEMENTIO NAO ENCONTRADO. " << endl;
+
 	// -----------------------------------------------------------------
 	// TAREFA 2
 	// 1. Peça ao usuário o número a ser buscado.
