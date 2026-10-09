@@ -180,7 +180,8 @@ void inserirElemento()
 	{
 		// procura o final da lista (o nó cujo prox é NULL)
 		NO* aux = primeiro;
-		while (aux->prox != NULL) {
+		while (aux->prox != NULL) 
+		{
 			aux = aux->prox;
 		}
 		aux->prox = novo;
@@ -189,6 +190,20 @@ void inserirElemento()
 
 void excluirElemento()
 {
+
+	int valor;
+	cout << "Digite um numero a ser deletado: ";
+	cin >> valor;
+
+	if (posicaoElemento(valor) != NULL) 
+	{
+		
+	}
+	else
+	{
+		cout << "Elemento nao encontrado. ";
+	}
+
 	// -----------------------------------------------------------------
 	// TAREFA 3
 	// 1. Peça o número e use posicaoElemento() para saber se ele existe.
