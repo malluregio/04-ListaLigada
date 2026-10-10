@@ -149,7 +149,7 @@ void inserirElemento()
 	cin >> valor;
 
 	if (posicaoElemento(valor) != NULL){
-		cout << "Este elemento ja existe.";
+		cout << "Este elemento ja existe." << endl;
 		return;
 	}
 
@@ -192,16 +192,35 @@ void excluirElemento()
 {
 
 	int valor;
-	cout << "Digite um numero a ser deletado: ";
+	cout << "Digite um elemento a ser deletado: ";
 	cin >> valor;
 
 	if (posicaoElemento(valor) != NULL) 
 	{
-		
+		NO* remover = posicaoElemento(valor);
+
+		if (remover == primeiro)
+		{
+			primeiro = primeiro->prox;
+			free(remover);
+		}
+		else
+		{
+			NO* atual = primeiro;
+			NO* anterior = NULL;
+			while (atual != remover)
+			{
+				anterior=atual;
+				atual = atual->prox;
+			}
+			anterior->prox = atual->prox;
+			free(remover);
+		}
+
 	}
 	else
 	{
-		cout << "Elemento nao encontrado. ";
+		cout << "ELEMENTO NAO ENCONTRADO " << endl;
 	}
 
 	// -----------------------------------------------------------------
@@ -225,11 +244,11 @@ void buscarElemento()
 	cin >> valor;
 
 	if (posicaoElemento(valor) != NULL) {
-		cout << "ENCONTRADO." << endl;
+		cout << "ENCONTRADO" << endl;
 		return;
 	}
 
-	cout << "ELEMENTIO NAO ENCONTRADO. " << endl;
+	cout << "ELEMENTO NAO ENCONTRADO " << endl;
 
 	// -----------------------------------------------------------------
 	// TAREFA 2
